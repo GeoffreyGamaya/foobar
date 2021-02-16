@@ -1,38 +1,24 @@
 package testHello;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class HelloWorld 
-{
+public class HelloWorld {
 
-
-	public static void main(String[] args)
-	{
-		int area = 15324;
-		int y = area;
-        ArrayList<Integer> areas  = new ArrayList<Integer>();
-        	
-		while (y != 0) 
-		{
-		  y = (int) Math.floor(Math.sqrt(area));
-          area = area - y*y;
-    
-            if (y != 0)
-            {
-                areas.add(y*y);
+	public static void main(String[] args) {
+        int remainingArea = 15324;
+        List<Integer> areas = new ArrayList<>();
+        int side = remainingArea;
+        while (side != 0) {
+            side = (int) Math.floor(Math.sqrt(remainingArea));
+            int area = side * side;
+            remainingArea = remainingArea - area;
+            if (side != 0) {
+                areas.add(area);
             }
-		} 
-        
-		
-		int[] TableauFix = new int [areas.size()];
-		for(int i = 0; i < areas.size() ; i++)
-		{
-			System.out.println("val " + areas.get(i));
-			TableauFix[i] = areas.get(i);
-		}
+        }
 
+        Integer[] TableauFix = areas.toArray(new Integer[0]);
 //		return TableauFix
-				
-		
 	}
 }
